@@ -3,146 +3,328 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Future Plans Career Games</title>
+  <title>Guess the Salary</title>
   <style>
-    * { box-sizing: border-box; }
-
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #eef6ff, #f8fbff);
-      color: #1f2937;
+      margin: 0;
+      background: #f4f7fb;
+      color: #222;
     }
 
     .container {
-      max-width: 1100px;
-      margin: 30px auto;
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
-      padding: 28px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 0;
-      font-size: 38px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #4b5563;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 850px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .game-card {
-      background: #f9fbff;
-      border: 1px solid #dbe7ff;
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
       border-radius: 16px;
-      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
-    .game-card h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 24px;
+    h1, h2 {
+      text-align: center;
     }
 
-    .game-card p {
-      color: #475569;
-      line-height: 1.6;
-      min-height: 72px;
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f9fbff;
+      border-radius: 12px;
+      border: 1px solid #dde7f3;
     }
 
-    .button {
-      display: inline-block;
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: bold;
+    }
+
+    input, button {
       width: 100%;
-      text-align: center;
-      padding: 12px 14px;
+      padding: 12px;
+      font-size: 16px;
       border-radius: 10px;
-      background: #2563eb;
+      box-sizing: border-box;
+    }
+
+    input {
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      border: none;
+      background: #2d6cdf;
       color: white;
-      text-decoration: none;
-      font-weight: 700;
-      margin-top: 10px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    .button:hover {
-      background: #1d4ed8;
+    button:hover {
+      background: #1f57b8;
     }
 
-    .footer-note {
-      margin-top: 28px;
-      padding: 16px;
-      background: #ecfdf5;
-      border: 1px solid #86efac;
-      border-radius: 14px;
-      text-align: center;
-      line-height: 1.6;
+    .hidden {
+      display: none;
+    }
+
+    .scoreboard {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #eef5ff;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #555;
+    }
+
+    ul {
+      padding-left: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Future Plans Career Games</h1>
-    <p class="subtitle">
-      Choose a game or tool below to explore careers, challenge myths, and access helpful staff resources.
-    </p>
+    <h1>Guess the Salary</h1>
 
-    <div class="grid">
-      <div class="game-card">
-        <h2>Guess the Salary</h2>
-        <p>Try to guess what different careers earn and see how close you are.</p>
-        <a class="button" href="https://futureplans4u.github.io/guess-the-salary/" target="_blank">Play Guess the Salary</a>
-      </div>
+    <div id="startScreen">
+      <div class="card">
+        <label for="playerName">Enter your name:</label>
+        <input type="text" id="playerName" placeholder="Your name" />
 
-      <div class="game-card">
-        <h2>Myth or Fact</h2>
-        <p>Decide whether each career statement is true or a myth.</p>
-        <a class="button" href="https://futureplans4u.github.io/Myth-or-Fact/" target="_blank">Play Myth or Fact</a>
-      </div>
+        <button onclick="startGame()">Start Game</button>
 
-      <div class="game-card">
-        <h2>Would You Rather</h2>
-        <p>Choose between two mystery career paths based on the good and the reality.</p>
-        <a class="button" href="https://futureplans4u.github.io/Would-You-Rather-Careers/" target="_blank">Play Would You Rather</a>
-      </div>
-
-      <div class="game-card">
-        <h2>2 Facts and 1 Myth</h2>
-        <p>Find the one career myth hidden among the true statements.</p>
-        <a class="button" href="https://futureplans4u.github.io/2-Facts-and-1-Myth/" target="_blank">Play 2 Facts and 1 Myth</a>
-      </div>
-
-      <div class="game-card">
-        <h2>Choose Your Career Path</h2>
-        <p>Explore possibilities and think about where your interests and choices can lead.</p>
-        <a class="button" href="https://futureplans4u.github.io/Choose-Your-Career-Path/" target="_blank">Play Choose Your Career Path</a>
-      </div>
-
-      <div class="game-card">
-        <h2>Coaching Notes Generator</h2>
-        <p>Create coaching notes and copy them directly into Future Plans without using Excel.</p>
-        <a class="button" href="https://futureplans4u.github.io/Coaching-Notes-Tool/" target="_blank">Open Coaching Notes Tool</a>
+        <p class="small">
+          You will see a career and guess its yearly salary.
+          You get points based on how close you are.
+        </p>
       </div>
     </div>
 
-    <div class="footer-note">
-      Your future is bigger than you think. Start somewhere, stay curious, and keep building.
+    <div id="gameScreen" class="hidden">
+      <div class="scoreboard">
+        <div id="roundInfo">Round 1 of 10</div>
+        <div id="scoreInfo">Score: 0</div>
+      </div>
+
+      <div class="card">
+        <h2 id="careerName">Career</h2>
+        <p id="careerDesc"></p>
+
+        <label for="salaryGuess">What do you think this career earns per year?</label>
+        <input type="number" id="salaryGuess" placeholder="Enter salary guess" />
+
+        <button onclick="submitGuess()">Submit Guess</button>
+
+        <div id="resultBox" class="result hidden"></div>
+        <button id="nextButton" class="hidden" onclick="nextRound()">Next Round</button>
+      </div>
+    </div>
+
+    <div id="endScreen" class="hidden">
+      <div class="card">
+        <h2 id="finalMessage">Game Over</h2>
+        <p id="finalScore"></p>
+        <p id="playerSummary"></p>
+        <button onclick="restartGame()">Play Again</button>
+      </div>
     </div>
   </div>
+
+  <script>
+    const careers = [
+      {
+        name: "Marine Biologist",
+        salary: 70000,
+        description: "Studies ocean life, ecosystems, and marine animals."
+      },
+      {
+        name: "Forensic Scientist",
+        salary: 65000,
+        description: "Examines evidence to help solve crimes."
+      },
+      {
+        name: "UX Designer",
+        salary: 95000,
+        description: "Designs websites and apps to be easy and enjoyable to use."
+      },
+      {
+        name: "Electrician",
+        salary: 62000,
+        description: "Installs and repairs electrical systems."
+      },
+      {
+        name: "Robotics Engineer",
+        salary: 105000,
+        description: "Builds and improves robots and automated systems."
+      },
+      {
+        name: "Dental Hygienist",
+        salary: 81000,
+        description: "Cleans teeth and helps patients maintain oral health."
+      },
+      {
+        name: "Data Analyst",
+        salary: 78000,
+        description: "Uses data to find patterns and support decisions."
+      },
+      {
+        name: "Game Developer",
+        salary: 90000,
+        description: "Creates and programs video games."
+      },
+      {
+        name: "Speech Pathologist",
+        salary: 84000,
+        description: "Helps people improve speech, communication, and swallowing."
+      },
+      {
+        name: "Drone Pilot",
+        salary: 58000,
+        description: "Operates drones for photography, mapping, inspections, and more."
+      },
+      {
+        name: "Welder",
+        salary: 50000,
+        description: "Joins and repairs metal parts in construction and manufacturing."
+      },
+      {
+        name: "Cybersecurity Analyst",
+        salary: 102000,
+        description: "Protects systems and networks from digital threats."
+      }
+    ];
+
+    let playerName = "";
+    let score = 0;
+    let round = 0;
+    let totalRounds = 10;
+    let gameCareers = [];
+    let currentCareer = null;
+
+    function shuffle(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function startGame() {
+      playerName = document.getElementById("playerName").value.trim() || "Player";
+      score = 0;
+      round = 0;
+      gameCareers = shuffle(careers).slice(0, totalRounds);
+
+      document.getElementById("startScreen").classList.add("hidden");
+      document.getElementById("endScreen").classList.add("hidden");
+      document.getElementById("gameScreen").classList.remove("hidden");
+
+      loadRound();
+    }
+
+    function loadRound() {
+      currentCareer = gameCareers[round];
+      document.getElementById("roundInfo").textContent = `Round ${round + 1} of ${totalRounds}`;
+      document.getElementById("scoreInfo").textContent = `Score: ${score}`;
+      document.getElementById("careerName").textContent = currentCareer.name;
+      document.getElementById("careerDesc").textContent = currentCareer.description;
+      document.getElementById("salaryGuess").value = "";
+      document.getElementById("resultBox").classList.add("hidden");
+      document.getElementById("nextButton").classList.add("hidden");
+    }
+
+    function submitGuess() {
+      const guessInput = document.getElementById("salaryGuess").value;
+      const guess = Number(guessInput);
+
+      if (!guessInput || guess <= 0) {
+        alert("Please enter a valid salary guess.");
+        return;
+      }
+
+      const actual = currentCareer.salary;
+      const diff = Math.abs(guess - actual);
+
+      let points = 0;
+      let message = "";
+
+      if (diff === 0) {
+        points = 10;
+        message = "Exact! You nailed it.";
+      } else if (diff <= 5000) {
+        points = 8;
+        message = "Very close!";
+      } else if (diff <= 10000) {
+        points = 6;
+        message = "Close!";
+      } else if (diff <= 20000) {
+        points = 4;
+        message = "Not bad.";
+      } else {
+        points = 1;
+        message = "Not even in the parking lot.";
+      }
+
+      score += points;
+
+      const resultBox = document.getElementById("resultBox");
+      resultBox.innerHTML = `
+        <strong>${message}</strong><br><br>
+        Your guess: $${guess.toLocaleString()}<br>
+        Actual salary: $${actual.toLocaleString()}<br>
+        Points earned: ${points}
+      `;
+      resultBox.classList.remove("hidden");
+
+      document.getElementById("scoreInfo").textContent = `Score: ${score}`;
+      document.getElementById("nextButton").classList.remove("hidden");
+    }
+
+    function nextRound() {
+      round++;
+      if (round >= totalRounds) {
+        endGame();
+      } else {
+        loadRound();
+      }
+    }
+
+    function endGame() {
+      document.getElementById("gameScreen").classList.add("hidden");
+      document.getElementById("endScreen").classList.remove("hidden");
+
+      document.getElementById("finalMessage").textContent = `Great job, ${playerName}!`;
+      document.getElementById("finalScore").textContent = `Your final score is ${score} out of ${totalRounds * 10}.`;
+
+      let summary = "";
+      if (score >= 80) {
+        summary = "You know salaries scary well. Either you're brilliant or secretly payroll.";
+      } else if (score >= 50) {
+        summary = "Solid job. You have a pretty good feel for career pay.";
+      } else {
+        summary = "That was rough, but now the students actually learned something. That's the point.";
+      }
+
+      document.getElementById("playerSummary").textContent = summary;
+    }
+
+    function restartGame() {
+      document.getElementById("playerName").value = "";
+      document.getElementById("startScreen").classList.remove("hidden");
+      document.getElementById("gameScreen").classList.add("hidden");
+      document.getElementById("endScreen").classList.add("hidden");
+    }
+  </script>
 </body>
 </html>
